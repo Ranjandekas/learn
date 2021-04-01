@@ -22,7 +22,11 @@ mongoose.connect('mongodb+srv://test:test@cluster0.bdfr1.mongodb.net/testdb?retr
 
 
 app.use(routes);
-app.listen(8080);
-console.log(`Server listening on port express 8080`)
+app.use('/', express.static('./public'));
+const PORT = process.env.PORT || 9000;
+app.listen(PORT);
+console.log(`Server listening on port express ${PORT}`)
 
 //mongodb+srv://user:<password>@cluster0.bdfr1.mongodb.net/myFirstDatabase?retryWrites=true&w=majority
+
+//ssh -i <pemfilename> ec2-user@ec2-13-126-33-178.ap-south-1.compute.amazonaws.com
